@@ -132,18 +132,18 @@ public class DownloadImageService extends IntentService {
     public void onHandleIntent(Intent intent) {
         // Get the URL associated with the Intent data.
         // @@ TODO -- you fill in here.
-    	Uri retrievedUrl = intent.getData();
+    	final Uri retrievedUrl = intent.getData();
         // Get the directory pathname where the image will be stored.
         // @@ TODO -- you fill in here.
     	Bundle extrasBundle = intent.getExtras();
     	String retrievedPathname = extrasBundle.getString(DIRECTORY_PATHNAME);
         // Download the requested image.
         // @@ TODO -- you fill in here.
-    	Uri downloadedImage = Utils.downloadImage(DownloadImageService.this, retrievedUrl, retrievedPathname);
+    	final Uri downloadedImage = Utils.downloadImage(DownloadImageService.this, retrievedUrl, retrievedPathname);
         // Extract the Messenger stored as an extra in the
         // intent under the key MESSENGER.
         // @@ TODO -- you fill in here.
-    	Messenger returnMessanger = (Messenger) extrasBundle.get(MESSENGER);
+    	final Messenger returnMessanger = (Messenger) extrasBundle.get(MESSENGER);
         // Send the path to the image file back to the
         // MainActivity via the messenger.
         // @@ TODO -- you fill in here.
@@ -210,7 +210,7 @@ public class DownloadImageService extends IntentService {
 
         // Set the Bundle to be the data in the message.
         // @@ TODO -- you fill in here.
-        message.obj = extrasBundle;
+        message.setData(extrasBundle);
         return message;
     }
 }
