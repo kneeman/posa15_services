@@ -93,14 +93,14 @@ class RequestHandler extends Handler {
                     // requestCode back to the Activity via the
                     // replyMessenger.
                     // DONE -- you fill in here.
-                	RequestHandler.this.sendPath(replyMessenger, downloadUri, pulledUri, requestCode);
+                	sendPath(replyMessenger, downloadUri, pulledUri, requestCode);
                 }
             };
 
         // Execute the downloadImageAndReply Runnable to download the
         // image and reply.
         // DONE -- you fill in here.
-        downloadImageAndReply.run();
+        mExecutorService.execute(downloadImageAndReply);
     }
 
     /**
@@ -138,7 +138,7 @@ class RequestHandler extends Handler {
     public void shutdown() {
         // Immediately shutdown the ExecutorService.
         // DONE -- you fill in here.  
-    	mExecutorService.shutdownNow();
+    	mExecutorService.shutdown();
     }
 }
 

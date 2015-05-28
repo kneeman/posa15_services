@@ -51,7 +51,7 @@ public class ImageOpsBoundService extends ImageOpsImpl {
                 // Create a new Messenger that encapsulates the
                 // returned IBinder object and store it for later use
                 // in mRequestMessengerRef.
-                //  -- you fill in here.
+                // DONE -- you fill in here.
                 mRequestMessengerRef = new Messenger(binder);
             }
 
@@ -97,7 +97,7 @@ public class ImageOpsBoundService extends ImageOpsImpl {
             // Bind to the Service associated with the Intent.
             // DONE -- you fill in here.
             mActivity.get().bindService(downloadImagesBoundServiceIntent, mServiceConnection, 
-            		mActivity.get().BIND_AUTO_CREATE);
+            		Context.BIND_AUTO_CREATE);
             
         }
     }

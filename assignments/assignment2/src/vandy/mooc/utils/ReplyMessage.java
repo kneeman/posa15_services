@@ -48,7 +48,7 @@ public class ReplyMessage extends RequestReplyMessageBase {
 
         // Put the URL to the image file into the Bundle
         // DONE -- you fill in here.
-        bundle.putParcelable(IMAGE_URL, url);
+        bundle.putString(IMAGE_URL, url.toString());
 
         // Put the requestCode into the Bundle
         // DONE -- you fill in here.
@@ -67,7 +67,7 @@ public class ReplyMessage extends RequestReplyMessageBase {
         // only if the download succeeded.
         // DONE -- you fill in here.
         if(pathToImageFile != null){
-        	bundle.putParcelable(IMAGE_PATHNAME, pathToImageFile);
+        	bundle.putString(IMAGE_PATHNAME, pathToImageFile.toString());
         }
         return replyMessage;
     }

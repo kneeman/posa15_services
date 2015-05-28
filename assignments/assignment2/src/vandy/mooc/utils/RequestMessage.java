@@ -41,7 +41,7 @@ public class RequestMessage extends RequestReplyMessageBase {
 
         // Store replyMessenger into the Message's replyTo field.
         // DONE -- you fill in here.
-        requestMessage.mMessage.replyTo = replyMessenger;
+        requestMessage.setMessenger(replyMessenger);
 
         // Create a new Bundle to handle the result.
         // DONE -- you fill in here.
@@ -53,7 +53,7 @@ public class RequestMessage extends RequestReplyMessageBase {
 
         // Put the URL to the image file into the Bundle
         // DONE -- you fill in here.
-        bundle.putParcelable(IMAGE_URL, url);
+        bundle.putString(IMAGE_URL, url.toString());
 
         // Put the pathname to the image file into the Bundle
         // DONE -- you fill in here.
