@@ -40,19 +40,15 @@ public class ReplyMessage extends RequestReplyMessageBase {
 
         // Create a new Bundle to handle the result.
         // DONE -- you fill in here.
-        Bundle bundle = new Bundle();
-
-        // Set the Bundle to be the data in the message.
-        // DONE -- you fill in here.
-        replyMessage.setData(bundle);
+        Bundle data = new Bundle();
 
         // Put the URL to the image file into the Bundle
         // DONE -- you fill in here.
-        bundle.putString(IMAGE_URL, url.toString());
+        data.putString(IMAGE_URL, url.toString());
 
         // Put the requestCode into the Bundle
         // DONE -- you fill in here.
-        bundle.putInt(REQUEST_CODE, requestCode);
+        data.putInt(REQUEST_CODE, requestCode);
 
         // Set the result code to indicate whether the download
         // succeeded or failed.
@@ -67,8 +63,13 @@ public class ReplyMessage extends RequestReplyMessageBase {
         // only if the download succeeded.
         // DONE -- you fill in here.
         if(pathToImageFile != null){
-        	bundle.putString(IMAGE_PATHNAME, pathToImageFile.toString());
+        	data.putString(IMAGE_PATHNAME, pathToImageFile.toString());
         }
+        
+        // Set the Bundle to be the data in the message.
+        // DONE -- you fill in here.
+        replyMessage.setData(data);
+        
         return replyMessage;
     }
 }

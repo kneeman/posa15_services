@@ -91,12 +91,12 @@ public class ImageOpsBoundService extends ImageOpsImpl {
             // that can download an image from the URL given by the
             // user.  
             // DONE - you fill in here.
-        	Intent downloadImagesBoundServiceIntent = DownloadImagesBoundService.makeIntent(mActivity.get());
+        	Intent intent = DownloadImagesBoundService.makeIntent(mActivity.get());
 
             Log.d(TAG, "calling bindService()");
             // Bind to the Service associated with the Intent.
             // DONE -- you fill in here.
-            mActivity.get().bindService(downloadImagesBoundServiceIntent, mServiceConnection, 
+            mActivity.get().bindService(intent, mServiceConnection, 
             		Context.BIND_AUTO_CREATE);
             
         }
@@ -110,10 +110,8 @@ public class ImageOpsBoundService extends ImageOpsImpl {
         if (mRequestMessengerRef != null) {
             Log.d(TAG, "calling unbindService()");
             // Unbind from the Service.
-            //  -- you fill in here.
-            if(mActivity != null && mServiceConnection != null){
+            //  Done -- you fill in here.
             	mActivity.get().unbindService(mServiceConnection);
-            }	
             // Set this field to null to trigger a call to
             // bindService() next time bindService() is called.
             // DONE -- you fill in here.
